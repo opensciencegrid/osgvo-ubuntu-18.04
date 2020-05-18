@@ -60,11 +60,17 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
         pkg-config \
         python \
         python3 \
+        python3-markdown \
         python3-pip \
+        python3-requests \
         python3-tk \
+        python3-yaml \
         python-dev \
+        python-markdown \
         python-numpy \
         python-pip \
+        python-requests \
+        python-yaml \
         r-base \
         r-cran-rcpp \
         r-cran-rinside \
