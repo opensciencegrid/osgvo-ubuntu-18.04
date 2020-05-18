@@ -127,7 +127,7 @@ RUN cd /tmp && \
         -Dsapdb=OFF \
         -Dsrp=OFF \
         && \
-    cmake --build . -- -j4 && \
+    cmake --build . -- -j8 && \
     cmake --build . --target install && \
     cd /tmp && \
     rm -rf /tmp/buil /usr/src/root
@@ -140,7 +140,7 @@ RUN cd /tmp && \
     mkdir build && \
     cd  build && \
     cmake /tmp/xrootd-4.7.1 -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_PERL=FALSE && \
-    make && \
+    make -j8 && \
     make install && \
     cd /tmp && \
     rm -rf xrootd-4.7.1.tar.gz xrootd-4.7.1
