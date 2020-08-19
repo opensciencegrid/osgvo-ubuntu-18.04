@@ -1,5 +1,11 @@
 FROM ubuntu:bionic
 
+LABEL opensciencegrid.name="Ubuntu 18.04"
+LABEL opensciencegrid.description="Ubuntu 18.04 Bionic() base image"
+LABEL opensciencegrid.url="https://www.ubuntu.com"
+LABEL opensciencegrid.category="Base"
+LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-ubuntu-18.04"
+
 RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
     apt-get update && apt-get install -y --no-install-recommends \
         build-essential \

@@ -1,0 +1,7 @@
+{
+    "opensciencegrid.name": "Ubuntu 18.04",
+    "opensciencegrid.description": "Ubuntu 18.04 (Bionic) base image",
+    "opensciencegrid.url": "https://www.ubuntu.com",
+    "opensciencegrid.category": "Base",
+    "opensciencegrid.definition_url": "https://github.com/opensciencegrid/osgvo-ubuntu-18.04"
+}
