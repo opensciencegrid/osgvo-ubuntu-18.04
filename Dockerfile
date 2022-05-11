@@ -8,20 +8,24 @@ LABEL opensciencegrid.definition_url="https://github.com/opensciencegrid/osgvo-u
 
 RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
     apt-get update && apt-get install -y --no-install-recommends \
+        autotools-dev \
         build-essential \
         cmake \
         curl \
         davix-dev \
         dcap-dev \
+        ffmpeg \
         fonts-freefont-ttf \
         g++ \
         gcc \
         gfal2 \
         gfortran \
         git \
+        hdf5-helpers \
         libafterimage-dev \
         libavahi-compat-libdnssd-dev \
         libcfitsio-dev \
+        libfabric-dev \
         libfftw3-dev \
         libfreetype6-dev \
         libftgl-dev \
@@ -31,13 +35,17 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
         libglew-dev \
         libglu-dev \
         libgraphviz-dev \
+        libgslcblas0 \
         libgsl-dev \
+        libhdf5-dev \
+        libhdf5-mpich-dev \
         libjemalloc-dev \
         libjpeg-dev \
         libkrb5-dev \
         libldap2-dev \
         liblz4-dev \
         liblzma-dev \
+        libmpich-dev \
         libmysqlclient-dev \
         libpcre++-dev \
         libpng-dev \
@@ -58,10 +66,8 @@ RUN export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true && \
         libzmq3-dev \
         locales \
         lsb-release \
-        lsb-release \
         make \
         module-init-tools \
-        openjdk-8-jdk \
         openjdk-8-jdk \
         pkg-config \
         python \
@@ -98,9 +104,10 @@ RUN mkdir -p /etc/grid-security && \
     rm -f certificates.tar.gz
 
 # stashcp
-RUN pip install --upgrade pip==9.0.3 && \
-    pip install setuptools && \
-    pip install stashcp
+RUN cd /tmp && \
+    wget -nv https://github.com/opensciencegrid/stashcp/releases/download/v6.7.5/stashcp-6.7.5-1_amd64.deb && \
+    dpkg -i stashcp-*.deb && \
+    rm -f stashcp-*.deb
 
 # required directories
 RUN for MNTPOINT in \
